@@ -4,7 +4,7 @@ interface PurchaseBody {
 }
 
 export default defineEventHandler(async (event) => {
-  const body = await reaDBody<PurchaseBody>(event)
+  const body = await readBody<PurchaseBody>(event)
 
   if (!body || !body.offerId || !body.userId) {
     throw createError({
