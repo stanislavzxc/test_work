@@ -15,7 +15,8 @@
 
     <div v-else-if="error" class="state-container">
       <p class="text error-text">Failed to load offers</p>
-      <button class="cta-button retry-btn" @click="refreshOffers">Try Again</button>
+      <button class="cta-button retry-btn" @click="() => refreshOffers()">Try Again</button>
+
     </div>
 
     <template v-else>
@@ -85,9 +86,10 @@ const purchaseLoading = ref(false)
 watch(offers, (newOffers) => {
   if (newOffers && newOffers.length > 0) {
     const popular = newOffers.find(o => o.isPopular)
-    selectedPlanId.value = popular ? popular.id : newOffers[0].id
+    selectedPlanId.value = popular ? popular.id : (newOffers[0]?.id || '')
   }
 }, { immediate: true })
+
 
 const handleClose = () => {
   console.log('Paywall closed')
