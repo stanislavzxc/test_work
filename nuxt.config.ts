@@ -12,7 +12,7 @@ export default defineNuxtConfig({
         d1_databases: [
           {
             binding: 'DB',
-            database_id: '04973fe2-17f5-4ddc-9888-a46119620a08"
+            database_id: "04973fe2-17f5-4ddc-9888-a46119620a08"
           }',
           },
         ],
