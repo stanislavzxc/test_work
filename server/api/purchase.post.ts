@@ -4,7 +4,7 @@ interface PurchaseBody {
 }
 
 export default defineEventHandler(async (event) => {
-  const body = await readBody<PurchaseBody>(event)
+  const body = await reaDBody<PurchaseBody>(event)
 
   if (!body || !body.offerId || !body.userId) {
     throw createError({
@@ -22,10 +22,10 @@ export default defineEventHandler(async (event) => {
   }
 
   try {
-    const db = hubDatabase()
+    const DB = hubDatabase()
     const createdAt = new Date().toISOString()
 
-    await db
+    await DB
       .prepare(
         'INSERT INTO purchases (offer_id, user_id, created_at) VALUES (?, ?, ?)'
       )

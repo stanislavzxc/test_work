@@ -4,6 +4,6 @@ export default defineNuxtConfig({
     '@nuxt/fonts'
   ],
   hub: {
-    db: 'sqlite'
+    database: 'sqlite'
   },
 })
