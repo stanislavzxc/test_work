@@ -1,3 +1,4 @@
+import { hubDatabase } from '#imports'
 export default defineEventHandler(async () => {
   const DB = hubDatabase()
   const { results } = await DB
