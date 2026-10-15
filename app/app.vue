@@ -123,7 +123,7 @@ const handleRestore = () => {
 }
 </script>
 
-<style scoped>
+<style>
 .paywall-screen {
   min-height: 100vh;
   width: 100%;
@@ -367,5 +367,22 @@ const handleRestore = () => {
 
 @keyframes spin {
   to { transform: rotate(360deg); }
+}
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #0D0E14; /* цвет фона под тёмную тему */
+  outline: none;
+}
+
+#__nuxt {
+  margin: 0;
+  padding: 0;
 }
 </style>
