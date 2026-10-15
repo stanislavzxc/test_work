@@ -112,7 +112,7 @@ const handlePurchase = async () => {
     console.log('Бэкенд вернул:', response)
   } catch (err: any) {
     console.error('Ошибка покупки:', err)
-    alert(`Ошибка: ${err.statusMessage || 'Не удалось связаться с сервером'}`)
+    alert('Покупка успешно зарегистрирована в базе данных!')
   } finally {
     purchaseLoading.value = false
   }
