@@ -1,24 +1,17 @@
 export default defineEventHandler(async (event) => {
-  await new Promise((resolve) => setTimeout(resolve, 500))
+  const DB = event.context.cloudflare.env.DB
 
-  return [
-    {
-      id: 'month_premium',
-      title: 'Месяц приключений',
-      description: 'Доступ ко всем играм на 30 дней',
-      price: 299,
-      period: 'месяц',
-      isPopular: false,
-      badge: ''
-    },
-    {
-      id: 'year_premium',
-      title: 'Год супергероя',
-      description: 'Полный доступ навсегда + 3 месяца в подарок',
-      price: 1490,
-      period: 'год',
-      isPopular: true,
-      badge: 'Выгодно -60%'
-    }
-  ]
+  const { results } = await DB
+    .prepare('SELECT id, title, description, price, period, is_popular, badge FROM offers ORDER BY is_popular DESC, price ASC')
+    .all()
+
+  return results.map((row: any) => ({
+    id: row.id,
+    title: row.title,
+    description: row.description,
+    price: row.price,
+    period: row.period,
+    isPopular: Boolean(row.is_popular),
+    badge: row.badge ?? '',
+  }))
 })
