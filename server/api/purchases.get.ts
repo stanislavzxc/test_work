@@ -1,4 +1,4 @@
-import { hubDatabase } from '@nuxthub/core'
+
 export default defineEventHandler(async () => {
   const DB = hubDatabase()
   const { results } = await DB
