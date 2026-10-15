@@ -1,3 +1,4 @@
+import { hubDatabase } from '@nuxthub/core'
 
 interface PurchaseBody {
   offerId: string;
